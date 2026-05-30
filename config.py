@@ -46,7 +46,7 @@ USER_AGENT = (
 )
 
 # ── Cathay Pacific URLs ───────────────────────────────────────────────────────
-CX_AWARD_URL = "https://www.cathaypacific.com/cx/en_HK/plan-and-book/redeem-asia-miles.html"
+CX_AWARD_URL = "https://www.cathaypacific.com/cx/en_HK.html"  # homepage; award search is JS-rendered
 CX_BOOK_URL  = "https://book.cathaypacific.com"
 
 # ── Telegram ──────────────────────────────────────────────────────────────────

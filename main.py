@@ -157,8 +157,8 @@ async def cmd_discover() -> None:
     from scraper import CathayAwardScraper
 
     console.print("[bold cyan]Running API discovery…[/bold cyan]")
-    scraper = CathayAwardScraper()
-    result = await scraper.discover_api()
+    async with CathayAwardScraper() as scraper:
+        result = await scraper.discover_api()
     console.print_json(data=result)
 
 

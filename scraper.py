@@ -301,7 +301,15 @@ class CathayAwardScraper:
 
     async def __aenter__(self) -> "CathayAwardScraper":
         self._playwright = await async_playwright().start()
-        browser = await self._playwright.chromium.launch(headless=config.HEADLESS)
+        browser = await self._playwright.chromium.launch(
+            headless=config.HEADLESS,
+            args=[
+                "--disable-blink-features=AutomationControlled",
+                "--disable-http2",
+                "--no-sandbox",
+                "--disable-dev-shm-usage",
+            ],
+        )
         self._context = await browser.new_context(
             user_agent=config.USER_AGENT,
             viewport={"width": 1280, "height": 900},
